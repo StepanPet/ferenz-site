@@ -54,3 +54,4 @@ This folder contains all the files you need to deploy your website to Netlify.
 ---
 
 **Need help?** Check `DEPLOY_FERENZ_SITE.md` in the parent folder for detailed instructions!
+# ferenz-site
