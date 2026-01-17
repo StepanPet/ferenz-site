@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    
+    <!-- Security Headers (additional meta tags) -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300c8c8;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2300a0a0;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' fill='%23000000'/%3E%3Cpath d='M30 25 L70 25 L85 50 L70 75 L30 75 L15 50 Z' fill='url(%23grad)' opacity='0.9'/%3E%3Cpath d='M35 40 L50 40 L50 55 L35 55 Z M50 40 L65 40 L65 55 L50 55 Z M35 55 L50 55 L50 70 L35 70 Z' fill='%23ffffff' opacity='0.95'/%3E%3C/svg%3E">
+    <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000000'/%3E%3Cpath d='M30 25 L70 25 L85 50 L70 75 L30 75 L15 50 Z' fill='%2300c8c8'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000000'/%3E%3Cpath d='M30 25 L70 25 L85 50 L70 75 L30 75 L15 50 Z' fill='%2300c8c8'/%3E%3C/svg%3E">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --gray-light: #f5f5f5;
+            --gray-medium: #888888;
+            --gray-dark: #333333;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            color: var(--white);
+            background: var(--black);
+            overflow-x: hidden;
+            cursor: none; /* Hide default cursor */
+        }
+
+        /* Custom Cursor */
+        .custom-cursor {
+            width: 24px;
+            height: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease-out, width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .custom-cursor-dot {
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            transition: transform 0.08s ease-out, width 0.2s ease, height 0.2s ease;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        .custom-cursor.hover {
+            width: 50px;
+            height: 50px;
+            border-color: rgba(0, 200, 200, 0.9);
+            border-width: 2px;
+            background: rgba(0, 200, 200, 0.1);
+            box-shadow: 0 0 20px rgba(0, 200, 200, 0.4);
+        }
+
+        .custom-cursor.hover + .custom-cursor-dot {
+            width: 7px;
+            height: 7px;
+            background: rgba(0, 200, 200, 0.95);
+            box-shadow: 0 0 12px rgba(0, 200, 200, 0.6);
+        }
+
+        .custom-cursor.click {
+            transform: translate(-50%, -50%) scale(0.85);
+            border-color: rgba(0, 200, 200, 1);
+        }
+
+        a, button, input, textarea, .nav-link, .logo, .alviso-logo, .game-canvas, #heroGameCanvas {
+            cursor: none !important;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .logo-mark {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Minimalist arrow/connection design */
+        .logo-mark::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 18px solid var(--white);
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .logo-mark::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 3px;
+            background: var(--white);
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Connecting line */
+        .logo-mark .connector {
+            position: absolute;
+            width: 2px;
+            height: 12px;
+            background: var(--white);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0.9;
+        }
+
+        .logo-text {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-main {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-family: 'Cormorant Garamond', serif;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .logo-sub {
+            font-size: 0.6rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            opacity: 0.6;
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            margin-top: 2px;
+            transition: all 0.3s;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo:hover .logo-mark {
+            transform: scale(1.08) rotate(-5deg);
+        }
+
+        .logo:hover .logo-mark::before {
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+            transform: translateX(-50%) translateY(-2px);
+        }
+
+        .logo:hover .logo-mark::after {
+            width: 28px;
+            height: 3.5px;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+        }
+
+        .logo:hover .logo-mark .connector {
+            height: 14px;
+            opacity: 1;
+            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.4));
+        }
+
+        .logo:hover .logo-main {
+            letter-spacing: 3px;
+        }
+
+        .logo:hover .logo-sub {
+            opacity: 0.9;
+            letter-spacing: 5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 400;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Space Grotesk', sans-serif;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--white);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            background: var(--black);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            text-align: left;
+        }
+
+        .hero-game {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease-out;
+            color: var(--white);
+            text-align: left;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-family: 'Poppins', sans-serif;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .hero .fun-fact {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 2rem;
+            font-family: 'Poppins', sans-serif;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            text-align: left;
+        }
+
+        .hero-game-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.8rem;
+            opacity: 0.7;
+            text-align: center;
+        }
+
+        #heroGameCanvas {
+            width: 100%;
+            max-width: 280px;
+            height: 210px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            cursor: crosshair;
+            display: block;
+        }
+
+        .hero-game-score {
+            text-align: center;
+            margin-top: 0.4rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+
+        .hero-game-controls {
+            text-align: center;
+            margin-top: 0.4rem;
+            font-size: 0.7rem;
+            opacity: 0.6;
+            font-family: 'Poppins', sans-serif;
+        }
+
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 400;
+            margin-bottom: 4rem;
+            text-align: center;
+            letter-spacing: 2px;
+            position: relative;
+            color: var(--white);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            right: -35px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 4px;
+            background: var(--white);
+            border-radius: 50%;
+            opacity: 0.4;
+            box-shadow: 8px 0 0 0 var(--white), 16px 0 0 0 var(--white);
+            transition: all 0.3s;
+        }
+
+        .section-title:hover::after {
+            opacity: 0.7;
+            transform: translateY(-50%) scale(1.2);
+            box-shadow: 10px 0 0 0 var(--white), 20px 0 0 0 var(--white);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--black);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text .highlight {
+            font-weight: 600;
+            background: var(--white);
+            color: var(--black);
+            padding: 0 5px;
+        }
+
+        .profile-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s;
+            object-fit: cover;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.02);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
+        }
+
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        /* Alviso Logo Styles */
+        .alviso-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.7rem 1.2rem;
+            background: linear-gradient(135deg, rgba(0, 200, 200, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+            border: 1.5px solid rgba(0, 200, 200, 0.3);
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .alviso-logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .alviso-logo:hover::before {
+            left: 100%;
+        }
+
+        .alviso-logo:hover {
+            background: linear-gradient(135deg, rgba(0, 200, 200, 0.18) 0%, rgba(255, 255, 255, 0.1) 100%);
+            border-color: rgba(0, 200, 200, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 200, 200, 0.25);
+        }
+
+        .alviso-logo-img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: contain;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 4px;
+            border: 1.5px solid rgba(0, 200, 200, 0.25);
+            transition: all 0.3s;
+        }
+
+        .alviso-logo:hover .alviso-logo-img {
+            border-color: rgba(0, 200, 200, 0.45);
+            transform: scale(1.08);
+        }
+
+        .alviso-logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.15rem;
+        }
+
+        .alviso-logo-company {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--white);
+            line-height: 1;
+        }
+
+        .alviso-logo-role {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.7rem;
+            opacity: 0.75;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            line-height: 1;
+        }
+
+        .alviso-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 200, 200, 0.1);
+            border: 1px solid rgba(0, 200, 200, 0.3);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .alviso-badge-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: contain;
+        }
+
+        /* Game Styles */
+        .game-container {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        .game-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        #gameCanvas {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            cursor: crosshair;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .game-controls {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .game-score {
+            text-align: center;
+            margin-top: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .game-message {
+            text-align: center;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        /* Skills/Interests */
+        .skills {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-item {
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.03);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .skill-item:hover {
+            transform: translate(-5px, -5px);
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .skill-item h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            font-weight: 400;
+        }
+
+        .skill-item p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Blog Section */
+        .blog {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 6rem 2rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .blog-article {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2.5rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .blog-article:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-article h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            font-weight: 400;
+        }
+
+        .blog-article .blog-meta {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 1.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .blog-article p {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .blog-article .chart-container {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+        }
+
+        .chart-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .bar-label {
+            min-width: 120px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .bar-wrapper {
+            flex: 1;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0, 200, 200, 0.8), rgba(0, 200, 200, 1));
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--white);
+            transition: width 1s ease-out;
+            animation: barFill 1.5s ease-out;
+        }
+
+        @keyframes barFill {
+            from { width: 0; }
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-box {
+            background: rgba(0, 200, 200, 0.1);
+            border: 1px solid rgba(0, 200, 200, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: rgba(0, 200, 200, 1);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .line-chart {
+            height: 200px;
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .chart-line {
+            stroke: rgba(0, 200, 200, 1);
+            stroke-width: 3;
+            fill: none;
+        }
+
+        .chart-area {
+            fill: rgba(0, 200, 200, 0.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--black);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact .section-title {
+            color: var(--white);
+        }
+
+        .contact .section-title::after {
+            color: var(--white);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        /* Cool Contact Form */
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Space Grotesk', sans-serif;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateX(5px);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--white);
+            color: var(--black);
+            border: 1px solid var(--white);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Space Grotesk', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-button::before {
+            content: '🚀';
+            position: absolute;
+            left: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: left 0.3s;
+        }
+
+        .submit-button:hover {
+            background: transparent;
+            color: var(--white);
+        }
+
+        .submit-button:hover::before {
+            left: 20px;
+        }
+
+        /* Fun Interactive Elements */
+        .fun-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-emoji {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0;
+            animation: float 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Typing Animation */
+        .typing-text {
+            display: inline-block;
+        }
+
+        .cursor-blink {
+            display: inline-block;
+            width: 3px;
+            height: 1.2em;
+            background: var(--white);
+            animation: blink 1s infinite;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 2px solid var(--white);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.8rem;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+                text-align: center;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+                text-align: center;
+            }
+
+            .hero .fun-fact {
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection Color */
+        ::selection {
+            background: var(--white);
+            color: var(--black);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <div class="logo-mark">
+                <div class="connector"></div>
+            </div>
+            <div class="logo-text">
+                <span class="logo-main">Štěpa</span>
+                <span class="logo-sub">Technical Recruiter</span>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+                <div class="hero-text">
+                <h1>Hi, I'm <span class="typing-text" id="typing-text"></span><span class="cursor-blink"></span></h1>
+                <p class="subtitle">Technical Recruiter connecting talented people with amazing opportunities</p>
+                <p class="fun-fact" id="fun-fact">Fun fact: Bramborak means potato cake in Czech! 🥔</p>
+            </div>
+            <div class="hero-game">
+                <div class="hero-game-title">🎮 Play While You Browse</div>
+                <canvas id="heroGameCanvas" width="280" height="210"></canvas>
+                <div class="hero-game-score">Score: <span id="heroGameScore">0</span></div>
+                <div class="hero-game-controls">Move: Mouse | Shoot: Click</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Hello! I'm <span class="highlight">Štěpa</span>, a technical recruiter working for <span class="highlight">Alviso agency</span>. I'm an empathetic person with a strong technical background, and I'm passionate about connecting candidates with the best opportunities that match their skills and aspirations.
+                    </p>
+                    <p>
+                        I've had the privilege of working with some amazing companies including <span class="highlight">Socialbakers</span>, <span class="highlight">Emplifi</span>, and <span class="highlight">Productboard</span>. These experiences have shaped my understanding of what makes a great tech team and how to find the perfect fit.
+                    </p>
+                    <p>
+                        When I'm not matching talent with opportunities, you'll find me playing music, fishing, enjoying sports, watching birds, or diving into fantasy worlds. I believe that diverse interests make us better at understanding people and their unique journeys.
+                    </p>
+                </div>
+                <div class="image-container">
+                    <img src="profile-photo.jpg" alt="Štěpa - Technical Recruiter" class="profile-image" id="profile-image" onerror="handleImageError(this)">
+                    <div class="image-placeholder" id="image-placeholder" style="display: none; width: 100%; max-width: 400px; min-height: 500px; background: rgba(255, 255, 255, 0.05); border: 2px dashed rgba(255, 255, 255, 0.2); border-radius: 10px; align-items: center; justify-content: center; flex-direction: column; color: rgba(255, 255, 255, 0.5); font-family: 'Poppins', sans-serif; padding: 2rem;">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">📷</div>
+                        <div style="text-align: center;">
+                            <p style="margin-bottom: 0.5rem; font-weight: 600;">Photo Not Found</p>
+                            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Please add profile-photo.jpg to the same folder</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 0.5rem;">
+                        <a href="https://alviso.cz" target="_blank" rel="noopener noreferrer" class="alviso-logo">
+                            <div class="alviso-logo-container" style="position: relative; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <img src="alviso-logo.png" alt="Alviso Logo" class="alviso-logo-img" id="alviso-logo-main" onerror="this.style.display='none'; document.getElementById('alviso-logo-fallback').style.display='flex';">
+                                <div id="alviso-logo-fallback" style="display: none; width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, rgba(0, 200, 200, 0.3), rgba(0, 200, 200, 0.2)); align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; color: rgba(0, 200, 200, 1); border: 1.5px solid rgba(0, 200, 200, 0.4); position: absolute; top: 0; left: 0;">AL</div>
+                            </div>
+                            <div class="alviso-logo-text">
+                                <span class="alviso-logo-company">ALVISO</span>
+                                <span class="alviso-logo-role">Proud Team Member</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">What I Do</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3>🎯 Technical Recruiting</h3>
+                    <p>Connecting talented developers, engineers, and tech professionals with companies where they can thrive and grow. I understand both the technical and human side of recruitment.</p>
+                </div>
+                <div class="skill-item">
+                    <h3>💡 Technical Background</h3>
+                    <p>My technical knowledge helps me understand what candidates do, speak their language, and identify the perfect match between skills and opportunities.</p>
+                </div>
+                <div class="skill-item">
+                    <h3>🤝 Empathetic Approach</h3>
+                    <p>I believe in understanding each candidate's unique journey, goals, and aspirations. Building genuine connections leads to better matches.</p>
+                </div>
+                <div class="skill-item">
+                    <h3>🏢 Company Experience</h3>
+                    <p>Having worked with Socialbakers, Emplifi, and Productboard, I understand what makes great tech companies tick and what they're looking for.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <h2 class="section-title">Blog</h2>
+            <div class="blog-grid">
+                <!-- Article 1: Time to Hire -->
+                <article class="blog-article">
+                    <h3>Understanding Time-to-Hire Benchmarks for Software Engineers</h3>
+                    <div class="blog-meta">Hiring Metrics</div>
+                    <p>Time-to-hire is one of the most critical metrics in technical recruitment. Understanding typical timelines helps set realistic expectations and optimize your hiring process. Here's what you need to know about hiring timelines for engineering roles.</p>
+                    
+                    <div class="chart-container">
+                        <div class="chart-title">Average Time to Hire by Seniority Level</div>
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <div class="bar-label">Entry/Junior</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 35%;">30 days</div>
+                                </div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">Mid-Level</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 50%;">42 days</div>
+                                </div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">Senior</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 75%;">60 days</div>
+                                </div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">Principal/Staff</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 100%;">85 days</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-grid">
+                        <div class="stat-box">
+                            <div class="stat-number">52</div>
+                            <div class="stat-label">Days Average</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">35-45</div>
+                            <div class="stat-label">Mid-Level Target</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">60-90</div>
+                            <div class="stat-label">Senior Range</div>
+                        </div>
+                    </div>
+
+                    <p><strong>Key Insights:</strong></p>
+                    <p>• Mid-level software engineering roles typically average 35-45 days from candidate engagement to offer acceptance</p>
+                    <p>• Senior and specialized roles (AI/ML, Security) typically require 60-90 days due to more complex interview processes and decision-making</p>
+                    <p>• Entry-level positions can close in 20-30 days, making them the fastest to fill</p>
+                    <p>• The tech industry average tends to be slightly above all-industry averages, reflecting the thoroughness of technical assessments and multiple interview rounds</p>
+                    <p>• Factors like interview process complexity, decision speed, and role specialization significantly impact these timelines</p>
+                </article>
+
+                <!-- Article 2: LinkedIn Profile Setup -->
+                <article class="blog-article">
+                    <h3>Creating a Standout LinkedIn Profile for Software Engineers</h3>
+                    <div class="blog-meta">Career Development</div>
+                    <p>Your LinkedIn profile is often the first impression recruiters and hiring managers have of you. A well-crafted profile can significantly increase your visibility and opportunities. Here's what every software engineer's LinkedIn profile should include.</p>
+                    
+                    <p><strong>1. Professional Headline</strong></p>
+                    <p>Your headline should be more than just your job title. Include your specialization and key technologies. Example: "Senior Full-Stack Engineer | React, Node.js, TypeScript | Building Scalable Web Applications"</p>
+                    
+                    <p><strong>2. Compelling Summary</strong></p>
+                    <p>Write a 3-4 paragraph summary that tells your story. Include your passion for technology, key achievements, and what you're looking for. Use first person and be authentic. Mention specific technologies, projects, or impact you've had.</p>
+                    
+                    <p><strong>3. Detailed Experience Section</strong></p>
+                    <p>For each role, include:</p>
+                    <p>• Clear job title and company</p>
+                    <p>• Technologies and tools used</p>
+                    <p>• Quantifiable achievements (e.g., "Improved API response time by 40%", "Led team of 5 engineers")</p>
+                    <p>• Key projects and their impact</p>
+                    <p>• Use bullet points for readability</p>
+                    
+                    <p><strong>4. Skills & Endorsements</strong></p>
+                    <p>List 15-20 relevant technical skills. Prioritize your strongest skills first. Include both programming languages and frameworks. Regularly update this section as you learn new technologies.</p>
+                    
+                    <p><strong>5. Recommendations</strong></p>
+                    <p>Request recommendations from colleagues, managers, or clients. 2-3 quality recommendations are more valuable than many generic ones. Offer to write recommendations in return.</p>
+                    
+                    <p><strong>6. Projects & Portfolio</strong></p>
+                    <p>Use the "Featured" section to showcase GitHub repositories, portfolio websites, or articles you've written. Include brief descriptions of what each project demonstrates.</p>
+                    
+                    <p><strong>7. Education & Certifications</strong></p>
+                    <p>List your education and any relevant certifications. Include online courses from platforms like Coursera, Udemy, or specialized tech certifications.</p>
+                    
+                    <p><strong>8. Profile Photo</strong></p>
+                    <p>Use a professional, clear headshot. Dress appropriately for your industry. A good photo increases profile views significantly.</p>
+                    
+                    <p><strong>9. Custom URL</strong></p>
+                    <p>Create a custom LinkedIn URL (e.g., linkedin.com/in/yourname) to make your profile more professional and easier to share.</p>
+                    
+                    <p><strong>10. Regular Updates</strong></p>
+                    <p>Keep your profile current. Update it when you start new projects, learn new skills, or achieve milestones. An active profile shows you're engaged in your career.</p>
+                    
+                    <p><strong>Pro Tips:</strong></p>
+                    <p>• Use keywords that recruiters search for in your industry</p>
+                    <p>• Engage with content by commenting and sharing relevant posts</p>
+                    <p>• Join relevant groups and participate in discussions</p>
+                    <p>• Set your profile to "Open to Work" if you're actively job searching (you can make this visible only to recruiters)</p>
+                    <p>• Write articles or posts about your technical experiences to demonstrate expertise</p>
+                </article>
+
+                <!-- Article 3: Hiring Process Optimization -->
+                <article class="blog-article">
+                    <h3>Optimizing Your Engineering Hiring Process: Data-Driven Strategies</h3>
+                    <div class="blog-meta">Best Practices</div>
+                    <p>Based on analysis of successful tech hiring processes, here are evidence-based strategies to reduce time-to-hire while maintaining quality.</p>
+                    
+                    <div class="chart-container">
+                        <div class="chart-title">Factors Impacting Time to Hire</div>
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <div class="bar-label">Interview Rounds</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 85%;">High Impact</div>
+                                </div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">Decision Speed</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 90%;">High Impact</div>
+                                </div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">Sourcing Channel</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 70%;">Medium Impact</div>
+                                </div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">Role Complexity</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 75%;">Medium Impact</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p><strong>Key Recommendations:</strong></p>
+                    <p>1. <strong>Streamline Interview Process:</strong> Reduce unnecessary rounds. Most effective processes use 3-4 rounds maximum, with clear feedback loops between stages.</p>
+                    <p>2. <strong>Accelerate Decision Cycles:</strong> Each week of delay increases the risk of losing top candidates. Aim for 24-48 hour feedback windows between rounds.</p>
+                    <p>3. <strong>Leverage Referrals:</strong> Referral candidates typically have faster time-to-hire and higher acceptance rates compared to job board applicants.</p>
+                    <p>4. <strong>Optimize for Role Type:</strong> QA and DevOps roles can close in 30-40 days, while AI/ML and security roles may need 50-60+ days - plan accordingly.</p>
+                    <p>5. <strong>Build Talent Pipelines:</strong> Maintaining relationships with passive candidates can reduce time-to-fill by 30-40% when roles open.</p>
+                </article>
+
+                <!-- Article 4: Market Trends -->
+                <article class="blog-article">
+                    <h3>Understanding Tech Hiring Market Dynamics</h3>
+                    <div class="blog-meta">Market Analysis</div>
+                    <p>The tech hiring landscape continues to evolve. Understanding market dynamics helps both recruiters and candidates navigate the hiring process more effectively.</p>
+                    
+                    <div class="stat-grid">
+                        <div class="stat-box">
+                            <div class="stat-number">56</div>
+                            <div class="stat-label">Days Avg Fill</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">41</div>
+                            <div class="stat-label">Days Median</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">↑</div>
+                            <div class="stat-label">AI Demand</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">30-40</div>
+                            <div class="stat-label">Fastest Roles</div>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-title">Time to Fill by Role Type</div>
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <div class="bar-label">QA/DevOps</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 40%;">30-40 days</div>
+                                </div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">Backend/Full-Stack</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 50%;">35-45 days</div>
+                                </div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">Frontend</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 50%;">35-45 days</div>
+                                </div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">AI/ML/Security</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 75%;">50-60+ days</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p><strong>Key Market Trends:</strong></p>
+                    <p>• <strong>Time-to-fill</strong> for engineering roles typically averages around 50-60 days, with median around 40-45 days for qualified candidates</p>
+                    <p>• <strong>Specialized roles</strong> like AI/ML and security are experiencing elevated demand, often requiring longer hiring cycles due to smaller talent pools</p>
+                    <p>• <strong>Remote hiring</strong> has widened talent pools significantly but can introduce coordination challenges across time zones</p>
+                    <p>• <strong>Tech hubs</strong> typically show longer hiring cycles (60-70+ days) due to higher competition and more extensive negotiation periods</p>
+                    <p>• <strong>Entry-level positions</strong> remain the fastest to fill, often closing in 21-30 days, making them attractive for rapid team scaling</p>
+                    <p>• <strong>Role complexity</strong> directly impacts hiring timelines - specialized skills require more thorough assessment and longer decision processes</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Chat</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Looking for your next opportunity? A company searching for talent? Or just want to connect? I'd love to hear from you!</p>
+                    <p>I'm always happy to chat about career opportunities, technical roles, or just have a conversation about the tech world. Let's connect! 🚀</p>
+                    <div class="social-links">
+                        <a href="mailto:stepan.peterka@alviso.cz" class="social-link" title="Email">✉️</a>
+                        <a href="https://www.alviso.cz" target="_blank" rel="noopener noreferrer" class="social-link" title="Alviso">💼</a>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 0.8rem 2rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: var(--white); text-decoration: none; border-radius: 5px; font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 0.9rem; letter-spacing: 1px; transition: all 0.3s;" onmouseover="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.borderColor='rgba(255, 255, 255, 0.5)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.1)'; this.style.borderColor='rgba(255, 255, 255, 0.3)'">
+                            Connect on LinkedIn →
+                        </a>
+                    </div>
+                    <div style="margin-top: 3rem; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05);">
+                        <p style="font-size: 0.9rem; margin-bottom: 0.5rem; font-family: 'Space Grotesk', sans-serif;"><strong>Current Status:</strong></p>
+                        <p id="status-text" style="font-size: 1rem; font-family: 'Poppins', sans-serif;">Available for new opportunities! 🎉</p>
+                        <button onclick="changeStatus()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: var(--white); color: var(--black); border: none; cursor: pointer; font-weight: 600; font-family: 'Space Grotesk', sans-serif; transition: all 0.3s;" onmouseover="this.style.background='transparent'; this.style.color='var(--white)'; this.style.border='1px solid var(--white)'" onmouseout="this.style.background='var(--white)'; this.style.color='var(--black)'; this.style.border='none'">Change Status</button>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Let's work together!" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your project or just say hi! 👋" required></textarea>
+                        <p style="margin-top: 0.5rem; font-size: 0.85rem; color: rgba(255, 255, 255, 0.5);" id="char-count">0 characters</p>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Made with ❤️ and probably too much coffee | © 2026</p>
+    </footer>
+
+    <script>
+        // Typing animation
+        const texts = ['Štěpa', 'a Technical Recruiter', 'a Talent Connector', 'an Empathetic Matchmaker'];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typing-text');
+
+        function typeText() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000; // Pause at end
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+
+            setTimeout(typeText, typeSpeed);
+        }
+
+        typeText();
+
+        // Fun facts rotation
+        const funFacts = [
+            "Fun fact: Bramborak means potato cake in Czech! 🥔",
+            "Fun fact: I can spot a great candidate from a mile away 🎯",
+            "Fun fact: I've connected hundreds of talented people with amazing opportunities ✨",
+            "Fun fact: When I'm not recruiting, you'll find me fishing or playing music 🎣🎵",
+            "Fun fact: I love watching birds and diving into fantasy worlds 🦅⚔️",
+            "Fun fact: My technical background helps me understand what developers actually do 💻",
+            "Fun fact: J.R.R. Tolkien created over 15 languages for Middle-earth, including complete Elvish languages! 🧝",
+            "Fun fact: The One Ring inscription is in Black Speech, written in Tengwar script - Tolkien was a linguist! 💍",
+            "Fun fact: 'Gandalf' means 'Elf of the Wand' in Old Norse - Tolkien loved mythology! 🧙",
+            "Fun fact: The Lord of the Rings was originally meant to be one book, not a trilogy! 📚",
+            "Fun fact: Tolkien wrote LOTR over 12 years while teaching at Oxford University! 🎓",
+            "Fun fact: The word 'hobbit' was invented by Tolkien - it's now in the dictionary! 🦶"
+        ];
+
+        let factIndex = 0;
+        const funFactElement = document.getElementById('fun-fact');
+
+        setInterval(() => {
+            factIndex = (factIndex + 1) % funFacts.length;
+            funFactElement.style.opacity = '0';
+            setTimeout(() => {
+                funFactElement.textContent = funFacts[factIndex];
+                funFactElement.style.opacity = '1';
+            }, 300);
+        }, 5000);
+
+        // Character counter
+        const messageTextarea = document.getElementById('message');
+        const charCount = document.getElementById('char-count');
+
+        messageTextarea.addEventListener('input', () => {
+            const count = messageTextarea.value.length;
+            charCount.textContent = `${count} characters`;
+            if (count > 500) {
+                charCount.style.color = '#ff6b6b';
+            } else {
+                charCount.style.color = 'rgba(255, 255, 255, 0.5)';
+            }
+        });
+
+        // Status changer
+        const statuses = [
+            { text: "Available for new opportunities! 🎉", color: "#00ff00" },
+            { text: "Screening candidates right now! 🔍", color: "#ffaa00" },
+            { text: "In an interview, be back soon! 📅", color: "#00aaff" },
+            { text: "Matching talent with opportunities! 🎯", color: "#ff00aa" },
+            { text: "Reviewing applications... 💼", color: "#aa00ff" },
+            { text: "Networking and connecting! 🤝", color: "#00ffaa" },
+            { text: "On a sourcing mission! 🚀", color: "#ffaa00" }
+        ];
+        let statusIndex = 0;
+
+        function changeStatus() {
+            statusIndex = (statusIndex + 1) % statuses.length;
+            const status = statuses[statusIndex];
+            document.getElementById('status-text').textContent = status.text;
+        }
+
+        // Initialize EmailJS (you'll need to get these from emailjs.com)
+        // For now, using a simple mailto fallback - see instructions below
+        (function(){
+            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+        })();
+
+        // Form submission with EmailJS
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const button = event.target.querySelector('.submit-button');
+            const originalText = button.textContent;
+            const form = event.target;
+            
+            // Get form data
+            const formData = {
+                from_name: form.querySelector('#name').value,
+                from_email: form.querySelector('#email').value,
+                subject: form.querySelector('#subject').value,
+                message: form.querySelector('#message').value,
+                to_email: 'stepan.peterka@alviso.cz'
+            };
+            
+            button.textContent = 'Sending... 🚀';
+            button.disabled = true;
+            
+            // Try EmailJS first, fallback to mailto if not configured
+            if (typeof emailjs !== 'undefined' && emailjs.send) {
+                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
+                    .then(function() {
+                        showSuccess(button, originalText, form);
+                    }, function(error) {
+                        console.error('EmailJS error:', error);
+                        // Fallback to mailto
+                        useMailtoFallback(formData, button, originalText, form);
+                    });
+            } else {
+                // Use mailto fallback
+                useMailtoFallback(formData, button, originalText, form);
+            }
+        }
+
+        function useMailtoFallback(formData, button, originalText, form) {
+            // Create mailto link
+            const subject = encodeURIComponent(formData.subject);
+            const body = encodeURIComponent(
+                `Name: ${formData.from_name}\n` +
+                `Email: ${formData.from_email}\n\n` +
+                `Message:\n${formData.message}`
+            );
+            const mailtoLink = `mailto:${formData.to_email}?subject=${subject}&body=${body}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            setTimeout(() => {
+                showSuccess(button, originalText, form);
+            }, 500);
+        }
+
+        function showSuccess(button, originalText, form) {
+            button.textContent = 'Message Sent! ✨';
+            button.style.background = '#00ff00';
+            button.style.color = '#000';
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '';
+                button.style.color = '';
+                button.disabled = false;
+                form.reset();
+                if (document.getElementById('char-count')) {
+                    document.getElementById('char-count').textContent = '0 characters';
+                }
+                
+                // Show fun message
+                alert('🎉 Thanks for reaching out! I\'ll get back to you soon - usually faster than you can say "bramborak"! 🥔');
+            }, 2000);
+        }
+
+        // Floating emojis on click
+        const emojis = ['💻', '🎨', '🚀', '✨', '💡', '🔥', '⭐', '🎉'];
+        
+        document.addEventListener('click', (e) => {
+            if (Math.random() > 0.7) { // 30% chance
+                const emoji = document.createElement('div');
+                emoji.className = 'floating-emoji';
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = e.clientX + 'px';
+                emoji.style.top = e.clientY + 'px';
+                emoji.style.animationDelay = '0s';
+                document.body.appendChild(emoji);
+                
+                setTimeout(() => {
+                    emoji.remove();
+                }, 3000);
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Handle image error
+        function handleImageError(img) {
+            img.style.display = 'none';
+            const placeholder = document.getElementById('image-placeholder');
+            if (placeholder) {
+                placeholder.style.display = 'flex';
+            }
+        }
+
+        // Profile image animation on scroll
+        const profileImage = document.getElementById('profile-image');
+        if (profileImage && profileImage.src) {
+            profileImage.style.opacity = '0';
+            profileImage.style.transform = 'translateY(30px)';
+            profileImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            
+            const imageObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            imageObserver.observe(profileImage);
+        } else {
+            // Show placeholder if no image src
+            const placeholder = document.getElementById('image-placeholder');
+            if (placeholder) {
+                placeholder.style.display = 'flex';
+            }
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe skill items
+        document.querySelectorAll('.skill-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(item);
+        });
+
+        // Observe blog articles
+        document.querySelectorAll('.blog-article').forEach(article => {
+            article.style.opacity = '0';
+            article.style.transform = 'translateY(30px)';
+            article.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(article);
+        });
+
+        // Animate bar charts when visible
+        const chartObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bars = entry.target.querySelectorAll('.bar-fill');
+                    bars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 100);
+                    });
+                    chartObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.chart-container').forEach(chart => {
+            chartObserver.observe(chart);
+        });
+
+        // Hero Game - Space Connect
+        const heroCanvas = document.getElementById('heroGameCanvas');
+        if (heroCanvas) {
+            const heroCtx = heroCanvas.getContext('2d');
+            let heroScore = 0;
+            let heroGameRunning = false;
+
+            const heroPlayer = {
+                x: heroCanvas.width / 2,
+                y: heroCanvas.height - 20,
+                width: 14,
+                height: 14,
+                speed: 4
+            };
+
+            let heroBullets = [];
+            let heroEnemies = [];
+            let heroMouseX = heroPlayer.x;
+
+            function initHeroGame() {
+                heroBullets = [];
+                heroEnemies = [];
+                heroScore = 0;
+                heroGameRunning = true;
+                document.getElementById('heroGameScore').textContent = heroScore;
+                spawnHeroEnemies();
+                heroGameLoop();
+            }
+
+            function spawnHeroEnemies() {
+                if (!heroGameRunning) return;
+                if (heroEnemies.length < 3) {
+                    heroEnemies.push({
+                        x: Math.random() * (heroCanvas.width - 14),
+                        y: -14,
+                        width: 12,
+                        height: 12,
+                        speed: 1.2 + Math.random() * 1.2
+                    });
+                }
+                setTimeout(spawnHeroEnemies, 1200 + Math.random() * 800);
+            }
+
+            heroCanvas.addEventListener('mousemove', (e) => {
+                const rect = heroCanvas.getBoundingClientRect();
+                heroMouseX = e.clientX - rect.left;
+                heroPlayer.x = Math.max(10, Math.min(heroCanvas.width - 30, heroMouseX - 10));
+            });
+
+            heroCanvas.addEventListener('click', () => {
+                if (heroGameRunning) {
+                    heroBullets.push({
+                        x: heroPlayer.x + heroPlayer.width / 2,
+                        y: heroPlayer.y,
+                        width: 3,
+                        height: 8,
+                        speed: 7
+                    });
+                }
+            });
+
+            function drawHeroPlayer() {
+                heroCtx.fillStyle = '#ffffff';
+                heroCtx.beginPath();
+                heroCtx.moveTo(heroPlayer.x + heroPlayer.width / 2, heroPlayer.y);
+                heroCtx.lineTo(heroPlayer.x, heroPlayer.y + heroPlayer.height);
+                heroCtx.lineTo(heroPlayer.x + heroPlayer.width, heroPlayer.y + heroPlayer.height);
+                heroCtx.closePath();
+                heroCtx.fill();
+            }
+
+            function drawHeroBullets() {
+                heroCtx.fillStyle = '#00ff00';
+                heroBullets.forEach(bullet => {
+                    heroCtx.fillRect(bullet.x - 2, bullet.y, bullet.width, bullet.height);
+                });
+            }
+
+            function drawHeroEnemies() {
+                heroCtx.fillStyle = '#ff6b6b';
+                heroEnemies.forEach(enemy => {
+                    heroCtx.beginPath();
+                    heroCtx.arc(enemy.x + enemy.width / 2, enemy.y + enemy.height / 2, enemy.width / 2, 0, Math.PI * 2);
+                    heroCtx.fill();
+                });
+            }
+
+            function updateHeroGame() {
+                heroBullets = heroBullets.filter(bullet => {
+                    bullet.y -= bullet.speed;
+                    return bullet.y > 0;
+                });
+
+                heroEnemies = heroEnemies.filter(enemy => {
+                    enemy.y += enemy.speed;
+                    if (enemy.y >= heroCanvas.height) {
+                        heroGameRunning = false;
+                        setTimeout(() => initHeroGame(), 2000);
+                        return false;
+                    }
+                    return true;
+                });
+
+                heroBullets.forEach((bullet, bi) => {
+                    heroEnemies.forEach((enemy, ei) => {
+                        if (bullet.x < enemy.x + enemy.width &&
+                            bullet.x + bullet.width > enemy.x &&
+                            bullet.y < enemy.y + enemy.height &&
+                            bullet.y + bullet.height > enemy.y) {
+                            heroBullets.splice(bi, 1);
+                            heroEnemies.splice(ei, 1);
+                            heroScore += 10;
+                            document.getElementById('heroGameScore').textContent = heroScore;
+                        }
+                    });
+                });
+            }
+
+            function heroGameLoop() {
+                if (!heroGameRunning) return;
+                
+                heroCtx.clearRect(0, 0, heroCanvas.width, heroCanvas.height);
+                
+                heroCtx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+                for (let i = 0; i < 15; i++) {
+                    heroCtx.fillRect(Math.random() * heroCanvas.width, Math.random() * heroCanvas.height, 1, 1);
+                }
+                
+                drawHeroPlayer();
+                drawHeroBullets();
+                drawHeroEnemies();
+                
+                updateHeroGame();
+                
+                requestAnimationFrame(heroGameLoop);
+            }
+
+            heroCanvas.addEventListener('click', () => {
+                if (!heroGameRunning) {
+                    initHeroGame();
+                }
+            });
+
+            setTimeout(() => {
+                if (!heroGameRunning) {
+                    initHeroGame();
+                }
+            }, 1500);
+        }
+
+    </script>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+    <script>
+        // Custom Cursor Script
+        const cursor = document.getElementById('customCursor');
+        const cursorDot = document.getElementById('customCursorDot');
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+        let dotX = 0;
+        let dotY = 0;
+
+        // Update mouse position
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Animate cursor
+        function animateCursor() {
+            // Smooth follow for outer ring
+            cursorX += (mouseX - cursorX) * 0.15;
+            cursorY += (mouseY - cursorY) * 0.15;
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+
+            // Fast follow for inner dot
+            dotX += (mouseX - dotX) * 0.4;
+            dotY += (mouseY - dotY) * 0.4;
+            cursorDot.style.left = dotX + 'px';
+            cursorDot.style.top = dotY + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Hover effects
+        const interactiveElements = document.querySelectorAll('a, button, input, textarea, .nav-link, .logo, .alviso-logo, [onclick], .game-canvas, #heroGameCanvas');
+        
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+            });
+        });
+
+        // Click effect
+        document.addEventListener('mousedown', () => {
+            cursor.classList.add('click');
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.classList.remove('click');
+        });
+
+        // Hide cursor when mouse leaves window
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+            cursorDot.style.opacity = '0';
+        });
+
+        document.addEventListener('mouseenter', () => {
+            cursor.style.opacity = '1';
+            cursorDot.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+# Netlify Configuration for ferenz.site
+# Security Headers and Settings
+
+[[headers]]
+  # Apply to all routes
+  for = "/*"
+  [headers.values]
+    # HSTS - Force HTTPS for 1 year, include subdomains, allow preload
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    
+    # XSS Protection
+    X-XSS-Protection = "1; mode=block"
+    
+    # Prevent MIME type sniffing
+    X-Content-Type-Options = "nosniff"
+    
+    # Prevent clickjacking - deny embedding in frames
+    X-Frame-Options = "DENY"
+    
+    # Referrer Policy - only send referrer for same-origin requests
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Content Security Policy
+    # Allows scripts from self, EmailJS CDN, and inline scripts
+    # Allows styles from self, Google Fonts, and inline styles
+    # Allows images from self, data URIs, and all HTTPS sources
+    # Allows connections to EmailJS API
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.gstatic.com https://cdn.emailjs.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.emailjs.com; frame-ancestors 'none'; base-uri 'self';"
+    
+    # Permissions Policy - restrict browser features
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(), usb=(), bluetooth=()"
+    
+    # Remove X-Powered-By header (if any)
+    X-Powered-By = ""
+    
+    # X-DNS-Prefetch-Control
+    X-DNS-Prefetch-Control = "on"
+
+# Redirect HTTP to HTTPS
+[[redirects]]
+  from = "http://ferenz.site/*"
+  to = "https://ferenz.site/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.ferenz.site/*"
+  to = "https://www.ferenz.site/:splat"
+  status = 301
+  force = true
