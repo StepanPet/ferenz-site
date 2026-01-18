@@ -11,10 +11,10 @@
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300c8c8;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2300a0a0;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' fill='%23000000'/%3E%3Cpath d='M30 25 L70 25 L85 50 L70 75 L30 75 L15 50 Z' fill='url(%23grad)' opacity='0.9'/%3E%3Cpath d='M35 40 L50 40 L50 55 L35 55 Z M50 40 L65 40 L65 55 L50 55 Z M35 55 L50 55 L50 70 L35 70 Z' fill='%23ffffff' opacity='0.95'/%3E%3C/svg%3E">
-    <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000000'/%3E%3Cpath d='M30 25 L70 25 L85 50 L70 75 L30 75 L15 50 Z' fill='%2300c8c8'/%3E%3C/svg%3E">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000000'/%3E%3Cpath d='M30 25 L70 25 L85 50 L70 75 L30 75 L15 50 Z' fill='%2300c8c8'/%3E%3C/svg%3E">
+    <!-- Favicon with Š -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300c8c8;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2300a0a0;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' fill='%23000000'/%3E%3Ctext x='50' y='75' font-family='Arial, sans-serif' font-size='70' font-weight='bold' text-anchor='middle' fill='url(%23grad)'%3EŠ%3C/text%3E%3C/svg%3E">
+    <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000000'/%3E%3Ctext x='50' y='75' font-family='Arial, sans-serif' font-size='70' font-weight='bold' text-anchor='middle' fill='%2300c8c8'%3EŠ%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000000'/%3E%3Ctext x='50' y='75' font-family='Arial, sans-serif' font-size='70' font-weight='bold' text-anchor='middle' fill='%2300c8c8'%3EŠ%3C/text%3E%3C/svg%3E">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -92,7 +92,7 @@
             border-color: rgba(0, 200, 200, 1);
         }
 
-        a, button, input, textarea, .nav-link, .logo, .alviso-logo, .game-canvas, #heroGameCanvas {
+        a, button, input, textarea, .nav-link, .logo, .alviso-logo, .game-canvas, #playGameCanvas {
             cursor: none !important;
         }
 
@@ -291,13 +291,6 @@
             text-align: left;
         }
 
-        .hero-game {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
         .hero h1 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 5rem;
@@ -331,42 +324,6 @@
             text-align: left;
         }
 
-        .hero-game-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0.8rem;
-            opacity: 0.7;
-            text-align: center;
-        }
-
-        #heroGameCanvas {
-            width: 100%;
-            max-width: 280px;
-            height: 210px;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            cursor: crosshair;
-            display: block;
-        }
-
-        .hero-game-score {
-            text-align: center;
-            margin-top: 0.4rem;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.75rem;
-            opacity: 0.8;
-        }
-
-        .hero-game-controls {
-            text-align: center;
-            margin-top: 0.4rem;
-            font-size: 0.7rem;
-            opacity: 0.6;
-            font-family: 'Poppins', sans-serif;
-        }
 
 
         @keyframes fadeInUp {
@@ -420,6 +377,29 @@
             opacity: 0.7;
             transform: translateY(-50%) scale(1.2);
             box-shadow: 10px 0 0 0 var(--white), 20px 0 0 0 var(--white);
+        }
+
+        /* Play Section */
+        .play {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 6rem 0;
+            display: none; /* Hidden by default */
+        }
+
+        .play.show {
+            display: block; /* Show when clicked */
+        }
+
+        .play-game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #playGameCanvas {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         /* About Section */
@@ -1041,6 +1021,36 @@
             51%, 100% { opacity: 0; }
         }
 
+        /* Scroll Up Button */
+        .scroll-up-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: none;
+        }
+
+        .scroll-up-container.show {
+            display: block;
+        }
+
+        .scroll-up-button {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            min-width: 80px;
+        }
+
+        .scroll-up-button:hover {
+            border-color: rgba(0, 200, 200, 0.8);
+            box-shadow: 0 6px 30px rgba(0, 200, 200, 0.4);
+            transform: translateY(-2px);
+        }
+
         /* Footer */
         footer {
             background: var(--black);
@@ -1065,6 +1075,21 @@
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+            }
+
+            .scroll-up-container {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .scroll-up-button {
+                padding: 0.8rem;
+            }
+
+            #playGameCanvas {
+                width: 100%;
+                max-width: 320px;
+                height: 240px;
             }
 
             .hero-text {
@@ -1120,7 +1145,7 @@
             </div>
             <div class="logo-text">
                 <span class="logo-main">Štěpa</span>
-                <span class="logo-sub">Technical Recruiter</span>
+                <span class="logo-sub">Recruiter | Technical & Full-Stack</span>
             </div>
         </div>
         <ul class="nav-links">
@@ -1128,6 +1153,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#blog">Blog</a></li>
+            <li><a href="#play">🎮 Play</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -1137,14 +1163,8 @@
         <div class="hero-content">
                 <div class="hero-text">
                 <h1>Hi, I'm <span class="typing-text" id="typing-text"></span><span class="cursor-blink"></span></h1>
-                <p class="subtitle">Technical Recruiter connecting talented people with amazing opportunities</p>
+                <p class="subtitle">Recruiter specializing in technical and full-stack recruitment, connecting talented people with amazing opportunities</p>
                 <p class="fun-fact" id="fun-fact">Fun fact: Bramborak means potato cake in Czech! 🥔</p>
-            </div>
-            <div class="hero-game">
-                <div class="hero-game-title">🎮 Play While You Browse</div>
-                <canvas id="heroGameCanvas" width="280" height="210"></canvas>
-                <div class="hero-game-score">Score: <span id="heroGameScore">0</span></div>
-                <div class="hero-game-controls">Move: Mouse | Shoot: Click</div>
             </div>
         </div>
     </section>
@@ -1156,7 +1176,7 @@
             <div class="about-content">
                 <div class="about-text">
                     <p>
-                        Hello! I'm <span class="highlight">Štěpa</span>, a technical recruiter working for <span class="highlight">Alviso agency</span>. I'm an empathetic person with a strong technical background, and I'm passionate about connecting candidates with the best opportunities that match their skills and aspirations.
+                        Hello! I'm <span class="highlight">Štěpa</span>, a recruiter specializing in technical and full-stack recruitment, working for <span class="highlight">Alviso agency</span>. I'm an empathetic person with a strong technical background, and I'm passionate about connecting candidates with the best opportunities that match their skills and aspirations.
                     </p>
                     <p>
                         I've had the privilege of working with some amazing companies including <span class="highlight">Socialbakers</span>, <span class="highlight">Emplifi</span>, and <span class="highlight">Productboard</span>. These experiences have shaped my understanding of what makes a great tech team and how to find the perfect fit.
@@ -1166,7 +1186,7 @@
                     </p>
                 </div>
                 <div class="image-container">
-                    <img src="profile-photo.jpg" alt="Štěpa - Technical Recruiter" class="profile-image" id="profile-image" onerror="handleImageError(this)">
+                    <img src="profile-photo.jpg" alt="Štěpa - Recruiter specializing in technical and full-stack recruitment" class="profile-image" id="profile-image" onerror="handleImageError(this)">
                     <div class="image-placeholder" id="image-placeholder" style="display: none; width: 100%; max-width: 400px; min-height: 500px; background: rgba(255, 255, 255, 0.05); border: 2px dashed rgba(255, 255, 255, 0.2); border-radius: 10px; align-items: center; justify-content: center; flex-direction: column; color: rgba(255, 255, 255, 0.5); font-family: 'Poppins', sans-serif; padding: 2rem;">
                         <div style="font-size: 4rem; margin-bottom: 1rem;">📷</div>
                         <div style="text-align: center;">
@@ -1440,6 +1460,34 @@
         </div>
     </section>
 
+    <!-- Play Section -->
+    <section class="play" id="play">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2 class="section-title" style="margin: 0;">🎮 Play While You Browse</h2>
+                <button onclick="hidePlaySection()" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: var(--white); padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; transition: all 0.3s;" onmouseover="this.style.background='rgba(255, 255, 255, 0.2)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.1)'">✕ Close</button>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; min-height: 400px; padding: 2rem 0;">
+                <div class="play-game-container" style="text-align: center;">
+                    <div style="margin-bottom: 1.5rem;">
+                        <p style="font-family: 'Poppins', sans-serif; color: rgba(255, 255, 255, 0.8); font-size: 1.1rem; margin-bottom: 0.5rem;">
+                            Take a break and play a quick game! 🎯
+                        </p>
+                        <p style="font-family: 'Poppins', sans-serif; color: rgba(255, 255, 255, 0.6); font-size: 0.9rem;">
+                            Move your mouse to control, click to shoot! 💥
+                        </p>
+                    </div>
+                    <div style="display: inline-block; background: rgba(0, 0, 0, 0.4); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.2);">
+                        <canvas id="playGameCanvas" width="400" height="300" style="display: block; border-radius: 8px; cursor: crosshair;"></canvas>
+                        <div style="margin-top: 1rem; font-family: 'Space Grotesk', sans-serif; font-size: 1rem; color: var(--white);">
+                            Score: <span id="playGameScore" style="color: rgba(0, 200, 200, 1); font-weight: 600;">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
@@ -1488,6 +1536,16 @@
         </div>
     </section>
 
+    <!-- Scroll Up Button -->
+    <div class="scroll-up-container" id="scrollUpContainer">
+        <div class="scroll-up-button" onclick="scrollToTop()">
+            <div style="text-align: center; padding: 0.5rem;">
+                <div style="font-size: 1.5rem; margin-bottom: 0.3rem;">↑</div>
+                <div style="font-size: 0.7rem; opacity: 0.7; font-family: 'Space Grotesk', sans-serif;">Back to Top</div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <p>Made with ❤️ and probably too much coffee | © 2026</p>
@@ -1495,7 +1553,7 @@
 
     <script>
         // Typing animation
-        const texts = ['Štěpa', 'a Technical Recruiter', 'a Talent Connector', 'an Empathetic Matchmaker'];
+        const texts = ['Štěpa', 'a Full-Stack Recruiter', 'a Talent Connector', 'an Empathetic Matchmaker'];
         let textIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -1693,6 +1751,16 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
+                    // Special handling for Play section
+                    if (target.id === 'play') {
+                        target.classList.add('show');
+                        // Start game after scrolling
+                        setTimeout(() => {
+                            if (typeof window.initPlayGame === 'function') {
+                                window.initPlayGame();
+                            }
+                        }, 600);
+                    }
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
@@ -1797,154 +1865,187 @@
             chartObserver.observe(chart);
         });
 
-        // Hero Game - Space Connect
-        const heroCanvas = document.getElementById('heroGameCanvas');
-        if (heroCanvas) {
-            const heroCtx = heroCanvas.getContext('2d');
-            let heroScore = 0;
-            let heroGameRunning = false;
+        // Scroll Up Button (simple, no game)
+        const scrollUpContainer = document.getElementById('scrollUpContainer');
+        
+        // Show/hide scroll up button
+        function checkScrollPosition() {
+            if (window.scrollY > 300) {
+                scrollUpContainer.classList.add('show');
+            } else {
+                scrollUpContainer.classList.remove('show');
+            }
+        }
+        
+        window.addEventListener('scroll', checkScrollPosition);
+        checkScrollPosition();
 
-            const heroPlayer = {
-                x: heroCanvas.width / 2,
-                y: heroCanvas.height - 20,
-                width: 14,
-                height: 14,
-                speed: 4
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Play Section Game
+        const playCanvas = document.getElementById('playGameCanvas');
+        if (playCanvas) {
+            const playCtx = playCanvas.getContext('2d');
+            let playScore = 0;
+            let playGameRunning = false;
+
+            const playPlayer = {
+                x: playCanvas.width / 2,
+                y: playCanvas.height - 30,
+                width: 16,
+                height: 16,
+                speed: 5
             };
 
-            let heroBullets = [];
-            let heroEnemies = [];
-            let heroMouseX = heroPlayer.x;
+            let playBullets = [];
+            let playEnemies = [];
+            let playMouseX = playPlayer.x;
 
-            function initHeroGame() {
-                heroBullets = [];
-                heroEnemies = [];
-                heroScore = 0;
-                heroGameRunning = true;
-                document.getElementById('heroGameScore').textContent = heroScore;
-                spawnHeroEnemies();
-                heroGameLoop();
+            function initPlayGame() {
+                playBullets = [];
+                playEnemies = [];
+                playScore = 0;
+                playGameRunning = true;
+                document.getElementById('playGameScore').textContent = playScore;
+                spawnPlayEnemies();
+                playGameLoop();
             }
 
-            function spawnHeroEnemies() {
-                if (!heroGameRunning) return;
-                if (heroEnemies.length < 3) {
-                    heroEnemies.push({
-                        x: Math.random() * (heroCanvas.width - 14),
-                        y: -14,
-                        width: 12,
-                        height: 12,
-                        speed: 1.2 + Math.random() * 1.2
+            function spawnPlayEnemies() {
+                if (!playGameRunning) return;
+                if (playEnemies.length < 4) {
+                    playEnemies.push({
+                        x: Math.random() * (playCanvas.width - 16),
+                        y: -16,
+                        width: 14,
+                        height: 14,
+                        speed: 1.5 + Math.random() * 1.5
                     });
                 }
-                setTimeout(spawnHeroEnemies, 1200 + Math.random() * 800);
+                setTimeout(spawnPlayEnemies, 1000 + Math.random() * 600);
             }
 
-            heroCanvas.addEventListener('mousemove', (e) => {
-                const rect = heroCanvas.getBoundingClientRect();
-                heroMouseX = e.clientX - rect.left;
-                heroPlayer.x = Math.max(10, Math.min(heroCanvas.width - 30, heroMouseX - 10));
+            playCanvas.addEventListener('mousemove', (e) => {
+                const rect = playCanvas.getBoundingClientRect();
+                playMouseX = e.clientX - rect.left;
+                playPlayer.x = Math.max(10, Math.min(playCanvas.width - 30, playMouseX - 10));
             });
 
-            heroCanvas.addEventListener('click', () => {
-                if (heroGameRunning) {
-                    heroBullets.push({
-                        x: heroPlayer.x + heroPlayer.width / 2,
-                        y: heroPlayer.y,
-                        width: 3,
-                        height: 8,
-                        speed: 7
+            playCanvas.addEventListener('click', () => {
+                if (playGameRunning) {
+                    playBullets.push({
+                        x: playPlayer.x + playPlayer.width / 2,
+                        y: playPlayer.y,
+                        width: 4,
+                        height: 10,
+                        speed: 8
                     });
                 }
             });
 
-            function drawHeroPlayer() {
-                heroCtx.fillStyle = '#ffffff';
-                heroCtx.beginPath();
-                heroCtx.moveTo(heroPlayer.x + heroPlayer.width / 2, heroPlayer.y);
-                heroCtx.lineTo(heroPlayer.x, heroPlayer.y + heroPlayer.height);
-                heroCtx.lineTo(heroPlayer.x + heroPlayer.width, heroPlayer.y + heroPlayer.height);
-                heroCtx.closePath();
-                heroCtx.fill();
+            function drawPlayPlayer() {
+                playCtx.fillStyle = '#ffffff';
+                playCtx.beginPath();
+                playCtx.moveTo(playPlayer.x + playPlayer.width / 2, playPlayer.y);
+                playCtx.lineTo(playPlayer.x, playPlayer.y + playPlayer.height);
+                playCtx.lineTo(playPlayer.x + playPlayer.width, playPlayer.y + playPlayer.height);
+                playCtx.closePath();
+                playCtx.fill();
             }
 
-            function drawHeroBullets() {
-                heroCtx.fillStyle = '#00ff00';
-                heroBullets.forEach(bullet => {
-                    heroCtx.fillRect(bullet.x - 2, bullet.y, bullet.width, bullet.height);
+            function drawPlayBullets() {
+                playCtx.fillStyle = '#00ff00';
+                playBullets.forEach(bullet => {
+                    playCtx.fillRect(bullet.x - 2, bullet.y, bullet.width, bullet.height);
                 });
             }
 
-            function drawHeroEnemies() {
-                heroCtx.fillStyle = '#ff6b6b';
-                heroEnemies.forEach(enemy => {
-                    heroCtx.beginPath();
-                    heroCtx.arc(enemy.x + enemy.width / 2, enemy.y + enemy.height / 2, enemy.width / 2, 0, Math.PI * 2);
-                    heroCtx.fill();
+            function drawPlayEnemies() {
+                playCtx.fillStyle = '#ff6b6b';
+                playEnemies.forEach(enemy => {
+                    playCtx.beginPath();
+                    playCtx.arc(enemy.x + enemy.width / 2, enemy.y + enemy.height / 2, enemy.width / 2, 0, Math.PI * 2);
+                    playCtx.fill();
                 });
             }
 
-            function updateHeroGame() {
-                heroBullets = heroBullets.filter(bullet => {
+            function updatePlayGame() {
+                playBullets = playBullets.filter(bullet => {
                     bullet.y -= bullet.speed;
                     return bullet.y > 0;
                 });
 
-                heroEnemies = heroEnemies.filter(enemy => {
+                playEnemies = playEnemies.filter(enemy => {
                     enemy.y += enemy.speed;
-                    if (enemy.y >= heroCanvas.height) {
-                        heroGameRunning = false;
-                        setTimeout(() => initHeroGame(), 2000);
+                    if (enemy.y >= playCanvas.height) {
+                        playGameRunning = false;
+                        setTimeout(() => initPlayGame(), 2000);
                         return false;
                     }
                     return true;
                 });
 
-                heroBullets.forEach((bullet, bi) => {
-                    heroEnemies.forEach((enemy, ei) => {
+                playBullets.forEach((bullet, bi) => {
+                    playEnemies.forEach((enemy, ei) => {
                         if (bullet.x < enemy.x + enemy.width &&
                             bullet.x + bullet.width > enemy.x &&
                             bullet.y < enemy.y + enemy.height &&
                             bullet.y + bullet.height > enemy.y) {
-                            heroBullets.splice(bi, 1);
-                            heroEnemies.splice(ei, 1);
-                            heroScore += 10;
-                            document.getElementById('heroGameScore').textContent = heroScore;
+                            playBullets.splice(bi, 1);
+                            playEnemies.splice(ei, 1);
+                            playScore += 10;
+                            document.getElementById('playGameScore').textContent = playScore;
                         }
                     });
                 });
             }
 
-            function heroGameLoop() {
-                if (!heroGameRunning) return;
+            function playGameLoop() {
+                if (!playGameRunning) return;
                 
-                heroCtx.clearRect(0, 0, heroCanvas.width, heroCanvas.height);
+                playCtx.clearRect(0, 0, playCanvas.width, playCanvas.height);
                 
-                heroCtx.fillStyle = 'rgba(255, 255, 255, 0.2)';
-                for (let i = 0; i < 15; i++) {
-                    heroCtx.fillRect(Math.random() * heroCanvas.width, Math.random() * heroCanvas.height, 1, 1);
+                playCtx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+                for (let i = 0; i < 20; i++) {
+                    playCtx.fillRect(Math.random() * playCanvas.width, Math.random() * playCanvas.height, 1, 1);
                 }
                 
-                drawHeroPlayer();
-                drawHeroBullets();
-                drawHeroEnemies();
+                drawPlayPlayer();
+                drawPlayBullets();
+                drawPlayEnemies();
                 
-                updateHeroGame();
+                updatePlayGame();
                 
-                requestAnimationFrame(heroGameLoop);
+                requestAnimationFrame(playGameLoop);
             }
 
-            heroCanvas.addEventListener('click', () => {
-                if (!heroGameRunning) {
-                    initHeroGame();
+            playCanvas.addEventListener('click', () => {
+                if (!playGameRunning) {
+                    initPlayGame();
                 }
             });
 
-            setTimeout(() => {
-                if (!heroGameRunning) {
-                    initHeroGame();
-                }
-            }, 1500);
+            // Make initPlayGame available globally
+            window.initPlayGame = initPlayGame;
+        }
+
+        // Function to hide play section
+        function hidePlaySection() {
+            const playSection = document.getElementById('play');
+            if (playSection) {
+                playSection.classList.remove('show');
+                // Scroll to top or previous section
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
         }
 
     </script>
@@ -1989,7 +2090,7 @@
         animateCursor();
 
         // Hover effects
-        const interactiveElements = document.querySelectorAll('a, button, input, textarea, .nav-link, .logo, .alviso-logo, [onclick], .game-canvas, #heroGameCanvas');
+        const interactiveElements = document.querySelectorAll('a, button, input, textarea, .nav-link, .logo, .alviso-logo, [onclick], .game-canvas, #playGameCanvas');
         
         interactiveElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
